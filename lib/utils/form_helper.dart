@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 
 class FormHelper {
   static Widget textInput(
-      BuildContext context,
-      Object initialValue,
-      Function onChanged, {
-        bool isTextArea = false,
-        bool isNumberInput = false,
-        obscureText: false,
-        Function? onValidate,
-        Widget? prefixIcon,
-        Widget? suffixIcon,
-      }) {
+    BuildContext context,
+    Object initialValue,
+    Function onChanged, {
+    bool isTextArea = false,
+    bool isNumberInput = false,
+    obscureText: false,
+    Function? onValidate,
+    Widget? prefixIcon,
+    Widget? suffixIcon,
+  }) {
     return TextFormField(
       initialValue: initialValue != null ? initialValue.toString() : "",
       decoration: fieldDecoration(
         context,
         "",
         "",
-        suffixIcon: suffixIcon!, prefixIcon: prefixIcon!,
+        suffixIcon: suffixIcon!,
       ),
       obscureText: obscureText,
       maxLines: !isTextArea ? 1 : 3,
@@ -33,12 +33,12 @@ class FormHelper {
   }
 
   static InputDecoration fieldDecoration(
-      BuildContext context,
-      String hintText,
-      String helperText, {
-        required Widget prefixIcon,
-        required Widget suffixIcon,
-      }) {
+    BuildContext context,
+    String hintText,
+    String helperText, {
+    Widget? prefixIcon,
+    Widget? suffixIcon,
+  }) {
     return InputDecoration(
       contentPadding: EdgeInsets.all(6),
       hintText: hintText,
@@ -62,10 +62,10 @@ class FormHelper {
 
   static Widget fieldLabel(String labelName) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 5, 0, 10),
+      padding: EdgeInsets.fromLTRB(0, 5, 0, 10),
       child: Text(
         labelName,
-        style:const TextStyle(
+        style: const TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 15.0,
         ),
@@ -73,8 +73,7 @@ class FormHelper {
     );
   }
 
-  static Widget saveButton(String buttonText, Function onTap,
-      {String? color, String? textColor, bool? fullWidth}) {
+  static Widget saveButton(String buttonText, Function onTap, {String? color, String? textColor, bool? fullWidth}) {
     return Container(
       height: 50.0,
       width: 150,
@@ -114,12 +113,12 @@ class FormHelper {
   }
 
   static void showMessage(
-      BuildContext context,
-      String title,
-      String message,
-      String buttonText,
-      Function onPressed,
-      ) {
+    BuildContext context,
+    String title,
+    String message,
+    String buttonText,
+    Function onPressed,
+  ) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
